@@ -3,14 +3,35 @@ package tela;
 import java.util.Scanner;
 
 import equipamento.Equipamento;
-import telefone.Telefone;
 
 public class Tela {
     public static void main(String[] args) throws Exception {
-        Telefone telefone = new Telefone();
-        Equipamento equipamento = telefone;
+        Equipamento equipamento = new Equipamento();
+        System.out.println("Opções:");
+        System.out.println("1. Abrir Ipod");
+        System.out.println("2. Abrir telefone");
+        System.out.println("3. Abrir navegador");
         Scanner terminal = new Scanner(System.in);
-        System.out.println("Escolha uma opção:");
+        int option = terminal.nextInt();
+        switch (option) {
+            case 1:
+                equipamento.selecionarMusica();
+                equipamento.tocar();
+                equipamento.pausar();
+                break;
+            case 2:
+                equipamento.atender();
+                equipamento.ligar();
+                equipamento.iniciarCorreioVoz();
+                break;
+            case 3:
+                equipamento.exibirPagina();
+                equipamento.atualizarPagina();
+                equipamento.adicionarNovaAba();
+                break;
+            default:
+                System.out.println("Ativando descanso de tela");
+        }
 
     }
 }
